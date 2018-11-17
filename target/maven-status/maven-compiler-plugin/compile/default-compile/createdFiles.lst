@@ -1,0 +1,10 @@
+com\rest\api\model\Contact.class
+com\rest\api\customException\ContactException.class
+com\rest\api\security\CustomBasicAuthenticationEntryPoint.class
+com\rest\api\customException\ErrorResponse.class
+com\rest\api\service\ContactService.class
+com\rest\api\dao\ContactDAO.class
+com\rest\api\security\SecurityConfiguration.class
+com\rest\api\util\ContactUtil.class
+com\rest\api\controller\ContactController.class
+com\rest\api\customException\ExceptionControllerAdvice.class
