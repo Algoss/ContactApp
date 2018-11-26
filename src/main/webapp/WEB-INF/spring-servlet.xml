@@ -12,7 +12,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	
 	<context:property-placeholder location="/WEB-INF/db.properties" />
-    <context:component-scan base-package="com.rest.api" />
+    <context:component-scan base-package="com.*" />
 
 	<beans:bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -46,6 +46,7 @@
 	<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 	        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
+  
   <tx:annotation-driven transaction-manager="transactionManager"/>
 
 	

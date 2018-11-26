@@ -76,7 +76,7 @@ public class ContactController {
 	}
 
 	@RequestMapping(value = "/addContact", method = RequestMethod.POST, headers = "Accept=application/json")
-	public void addCountry(@RequestBody Contact contact) throws ContactException {
+	public void addContact(@RequestBody Contact contact) throws ContactException {
 		try {
 		ContactUtil.validateContact(contact);
 		contactService.addContact(contact);
@@ -115,6 +115,19 @@ public class ContactController {
 				if(e instanceof ContactException)
 					throw new ContactException(e.getMessage());
 				throw new ContactException("Error while deleting contact: "+e.getMessage());
+			}		
+	}
+	
+	@RequestMapping(value = "/deleteAllContacts", method = RequestMethod.DELETE, headers = "Accept=application/json")
+	public void deleteAllContacts() throws ContactException {
+		try {
+			contactService.deleteAllContacts();
+			}
+			catch(Exception e)
+			{
+				if(e instanceof ContactException)
+					throw new ContactException(e.getMessage());
+				throw new ContactException("Error while deleting contacts: "+e.getMessage());
 			}		
 	}
 	

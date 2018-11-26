@@ -67,4 +67,21 @@ public class ContactDAO {
 		}
 	}
 
+	public void deleteAllContacts() throws ContactException {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Contact> contacts = session.createQuery("from Contact c").list();
+		if(contacts == null || contacts.isEmpty())
+			throw new ContactException("contact not found!!");
+		session.clear();
+		
+		for(Contact con: contacts)
+		{
+		Contact p = (Contact) session.load(Contact.class, new String(con.getEmail()));
+		if (null != p) {
+			session.delete(p);
+		}
+		session.clear();
+		}
+	}
+
 }

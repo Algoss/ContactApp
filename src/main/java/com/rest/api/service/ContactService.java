@@ -3,14 +3,14 @@ package com.rest.api.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rest.api.customException.ContactException;
 import com.rest.api.dao.ContactDAO;
 import com.rest.api.model.Contact;
 
-@Service("contactService")
+@Component
 public class ContactService {
 	
 	@Autowired
@@ -47,6 +47,11 @@ public class ContactService {
 	@Transactional
 	public void deleteContact(String email) throws ContactException {
 		contactDao.deleteContact(email);
+	}
+
+	@Transactional
+	public void deleteAllContacts() throws ContactException {
+		contactDao.deleteAllContacts();
 	}
 
 	
